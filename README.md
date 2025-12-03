@@ -2,7 +2,6 @@
 
 Bu repo, **Intel RealSense** ve **Stereolabs ZED** derinlik kameraları kullanılarak geliştirilmiş çeşitli bilgisayarlı görü (computer vision), 3D modelleme ve ölçüm projelerini içerir.
 
-Proje, kullanılan donanım ve amaca göre 4 ana bölüme ayrılmıştır:
 
 ## 📂 Proje Listesi
 
