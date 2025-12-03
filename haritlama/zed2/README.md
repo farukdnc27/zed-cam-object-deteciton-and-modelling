@@ -2,7 +2,7 @@
 
 This module is dedicated to 3D scanning and modeling using the ZED camera. It allows you to capture the geometry of objects and environments, saving them as 3D mesh files (e.g., `.obj`, `.ply`).
 
-![3D Modeling Overview](../3dmodelolcum2.jpeg)
+
 
 
 ## 📂 Key Files & Directories
