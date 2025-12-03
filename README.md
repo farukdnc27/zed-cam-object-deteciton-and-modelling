@@ -60,4 +60,15 @@ pip install numpy opencv-python pyzed-sl ultralytics open3d
     cd zed-cam-object-deteciton-and-modelling
     ```
 
+## 📄 License & Disclaimer
+
+This project is a **portfolio showcase** demonstrating advanced applications of Computer Vision and 3D Modeling.
+
+### Licensing
+- **Project Code:** Licensed under the **AGPL-3.0 License** - see the [LICENSE](LICENSE) file for details.
+- **YOLOv8:** This project utilizes **YOLOv8** from Ultralytics, which is governed by the **AGPL-3.0** license.
+- **ZED SDK:** This project relies on the **ZED SDK** provided by Stereolabs. The ZED SDK is proprietary software and is subject to the **Stereolabs End User License Agreement (EULA)**. Usage of the ZED SDK requires Stereolabs hardware (ZED Cameras). Please review the [Stereolabs License Agreement](https://www.stereolabs.com/legal/eula) before using.
+
+**Note:** If you plan to use this project for commercial purposes, you must ensure compliance with both Ultralytics (YOLOv8) and Stereolabs (ZED SDK) licensing terms.
+
 
