@@ -1,36 +1,47 @@
-# Intel RealSense 3D Araçları
+# Core ZED Scripts (`pythonzed`)
 
-Bu klasör, Intel RealSense derinlik kameraları (D415, D435, D455 vb.) kullanılarak geliştirilmiş temel 3D işlem scriptlerini içerir.
+This directory contains a collection of fundamental Python scripts for interacting with the ZED Stereo Camera. These scripts demonstrate basic capabilities such as depth sensing, point cloud generation, hand tracking, and basic measurements.
 
-## 🛠 İçerik
+![ZED Core Features](derinlik_goruntu.png)
 
-### 1. 3D Modelleme (`modelleme.py`)
-Kameradan alınan derinlik verisini kullanarak anlık 3D nokta bulutu (Point Cloud) oluşturur.
-*   **Çıktı:** `nokta_bulutu.ply` dosyası.
-*   **Kullanım:** `q` tuşu ile kaydet ve çık.
 
-### 2. 3D Haritalama (`haritalama.py`)
-Open3D kütüphanesini kullanarak gerçek zamanlı ortam haritalaması (Reconstruction) yapar. Kamerayı hareket ettirerek odanın 3D modelini çıkarabilirsiniz.
-*   **Yöntem:** TSDF Volume Integration.
-*   **Çıktı:** `oda_haritasi.ply`
-*   **Kullanım:** `CTRL+C` ile bitir.
+## 📂 File Descriptions
 
-### 3. Mesafe Ölçümü (`olcum.py`)
-Kamera görüntüsü üzerinde tıklanan noktalar arasındaki mesafeyi ölçer.
-*   **Özellik:** Çoklu ölçüm desteği.
-*   **Kullanım:** Sol tık ile nokta seç, `SPACE` ile temizle.
+Here is a breakdown of the key scripts in this directory:
 
-## 📦 Kurulum
+- **`derinlik.py`**: Displays the depth map from the ZED camera in real-time. Useful for visualizing distance information.
+- **`modelleme.py`**: Captures and displays a 3D point cloud of the scene.
+- **`olcum.py` / `olcum2.py`**: Tools for measuring distances between points in the 3D space.
+- **`handflow.py`**: Demonstrates hand tracking capabilities (if supported by the SDK/model used).
+- **`haritalama.py`**: Performs spatial mapping to create a 3D map of the environment.
+- **`sanalduvar.py`**: Implements a "virtual wall" concept, likely for detecting objects crossing a specific depth threshold.
+- **`renk.py`**: Basic color image capture and processing.
+
+## 🚀 Usage
+
+To run any of these scripts, simply execute them with Python. Make sure your ZED camera is connected.
 
 ```bash
-pip install pyrealsense2 numpy opencv-python open3d matplotlib
+python derinlik.py
 ```
 
-## ▶️ Çalıştırma
-
-Ana dizinden:
 ```bash
-python pythonzed/modelleme.py
-python pythonzed/haritalama.py
-python pythonzed/olcum.py
+python modelleme.py
 ```
+
+## 📸 Examples
+
+### Depth Sensing (`derinlik.py`)
+![Depth Map](path/to/depth_map_example.png)
+*Screenshot of the depth map output.*
+
+### 3D Point Cloud (`modelleme.py`)
+![Point Cloud](path/to/point_cloud_example.png)
+*Screenshot of the 3D point cloud viewer.*
+
+## ⚠️ Requirements
+
+- ZED SDK
+- `pyzed` Python wrapper
+- `opencv-python`
+- `open3d` (for some visualization scripts)

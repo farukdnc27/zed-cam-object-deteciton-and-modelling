@@ -6,41 +6,70 @@ Proje, kullanılan donanım ve amaca göre 4 ana bölüme ayrılmıştır:
 
 ## 📂 Proje Listesi
 
-### 1. [Intel RealSense Araçları (`pythonzed/`)](./pythonzed)
-Intel RealSense kameraları (D400 serisi) için temel araçlar.
-*   **Özellikler:** 3D Nokta bulutu oluşturma, gerçek zamanlı oda haritalama (TSDF), mesafe ölçümü.
-*   **Ana Dosyalar:** `modelleme.py`, `haritalama.py`, `olcum.py`
+# ZED Camera Object Detection and Modeling
 
-### 2. [ZED Nesne Tespiti ve Hacim (`haritlama/zed/`)](./haritlama/zed)
-ZED 2i kamera ve YOLOv8 kullanarak nesnelerin tespit edilmesi ve 3D hacimlerinin hesaplanması.
-*   **Özellikler:** YOLOv8 entegrasyonu, AR kutu çizimi, nesne hacim tahmini (şişe, kutu vb.).
-*   **Ana Dosya:** `zed11.py`
+This project provides a comprehensive suite of tools for working with the ZED Stereo Camera. It includes modules for object detection, 3D modeling, depth sensing, spatial mapping, and specific industrial applications like stone measurement.
 
-### 3. [ZED Temel Modelleme ve Ölçüm (`haritlama/zed2/`)](./haritlama/zed2)
-ZED kamerası ile ortam tarama ve basit ölçüm işlemleri.
-*   **Özellikler:** 3D Mesh oluşturma (Spatial Mapping), iki nokta arası mesafe ölçümü.
-*   **Ana Dosya:** `zedmodel2.py`
+## 🎯 Core Purpose
 
-### 4. [ZED Endüstriyel Taş Analizi (`haritlama/zed3/`)](./haritlama/zed3)
-Doğal taşların boyutlarının analizi ve kesim planlaması için gelişmiş bir endüstriyel uygulama.
-*   **Özellikler:** Voksel tabanlı analiz, paketleme algoritması, kesim planı (CSV) çıktısı, iç zarf (envelope) hesaplama.
-*   **Ana Dosya:** `zedtasolcum12.py`
+The fundamental goal of this project is to leverage the **ZED 2i stereo camera** alongside various advanced algorithms—including **YOLOv8** for object detection, **Point Cloud** processing for 3D reconstruction, and **Voxel Grid** analysis for volumetric estimation—to accurately distinguish objects from their environment. We aim to precisely estimate their dimensions and iteratively improve the accuracy of these measurements.
 
----
+![ZED 2i Object Analysis](haritlama/zed/zed7.jpeg)
 
-## 🚀 Kurulum
 
-Tüm projeler için genel gereksinimler:
+## 📂 Project Structure
+
+The project is organized into several key directories, each serving a specific purpose:
+
+- **`pythonzed/`**: Contains core scripts for fundamental ZED camera operations such as depth sensing, point cloud generation, hand tracking, and basic measurements.
+- **`haritlama/`**: A collection of advanced modules for mapping and specific use cases.
+    - **`zed/`**: Focuses on object detection integration (using YOLOv8) and various experimental ZED scripts.
+    - **`zed2/`**: Dedicated to 3D object scanning, modeling, and precise measurements.
+    - **`zed3/`**: A specialized module for industrial stone measurement, cutting plan generation, and detailed analysis.
+
+## ✨ Key Features
+
+- **Object Detection**: Real-time object detection using YOLOv8 integrated with ZED depth data.
+- **3D Modeling**: Generate 3D meshes and point clouds of scanned objects.
+- **Depth Sensing**: Utilize the ZED camera's stereo vision for accurate depth estimation.
+- **Spatial Mapping**: Create maps of the environment for navigation or analysis.
+- **Measurement Tools**: Precise tools for measuring distances, dimensions, and volumes of objects.
+- **Industrial Application**: Specialized scripts for stone measurement and cutting optimization.
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- **ZED SDK**: Ensure the ZED SDK is installed and configured for your ZED camera.
+- **Python 3.x**: The project is built using Python.
+- **Dependencies**: Install the required Python libraries (e.g., `pyzed`, `opencv-python`, `ultralytics`, `open3d`, `numpy`).
 
 ```bash
-pip install numpy opencv-python open3d
+pip install numpy opencv-python pyzed-sl ultralytics open3d
 ```
 
-**Kamera SDK'ları:**
-*   **Intel RealSense:** `pip install pyrealsense2`
-*   **ZED Camera:** [ZED SDK](https://www.stereolabs.com/developers/release/) kurulmalı ve Python API'si (`pyzed`) aktif edilmelidir.
-*   **YOLO (Sadece `zed` klasörü için):** `pip install ultralytics`
+### Installation
 
-## ⚠️ Notlar
-*   `haritlama` klasör ismi projede bu şekilde geçmektedir (haritalama yerine).
-*   Her klasörün içinde o projeye özel detaylı `README.md` dosyaları bulunmaktadır.
+1.  Clone the repository:
+    ```bash
+    git clone https://github.com/farukdnc27/zed-cam-object-deteciton-and-modelling.git
+    ```
+2.  Navigate to the project directory:
+    ```bash
+    cd zed-cam-object-deteciton-and-modelling
+    ```
+
+## 📸 Usage
+
+Each subdirectory contains its own set of scripts and documentation. Please refer to the `README.md` files in `pythonzed`, `haritlama/zed`, `haritlama/zed2`, and `haritlama/zed3` for detailed instructions on running specific modules.
+
+![Usage Example](path/to/usage_example.png)
+*Place a screenshot or GIF demonstrating the application in use here.*
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+[Specify License Here]

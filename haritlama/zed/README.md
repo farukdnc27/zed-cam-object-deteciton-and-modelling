@@ -1,38 +1,40 @@
-# ZED Nesne Tespiti ve Hacim Tahmini
+# ZED Object Detection & Volume Analysis (`haritlama/zed`)
 
-Bu proje, **ZED 2i** stereoskopik kamera ve **YOLOv8** nesne tespit modelini birleştirerek, tespit edilen nesnelerin (şişe, kutu, bilgisayar vb.) 3D dünyadaki konumlarını ve hacimlerini hesaplar.
+This module integrates the ZED Stereo Camera with **YOLOv8** for real-time object detection and volume estimation. It is designed to identify objects in the scene and calculate their approximate dimensions and volume using depth data.
 
-## 🌟 Özellikler
 
-*   **YOLOv8 Entegrasyonu:** Nesneleri gerçek zamanlı tanır.
-*   **3D Konumlandırma:** ZED derinlik haritasını kullanarak nesnenin 3D koordinatlarını bulur.
-*   **Hacim Hesabı:** Nesnenin türüne göre (silindir veya prizma) hacmini litre/ml cinsinden tahmin eder.
-*   **AR Görselleştirme:** Nesnelerin etrafına 3D bounding box (sınırlayıcı kutu) çizer.
-*   **Open3D Görünümü:** Sahneyi ve tespit edilen nesneleri 3D uzayda görselleştirir.
 
-## 📂 Önemli Dosyalar
+## 📂 Key Files
 
-*   **`zed11.py`**: Projenin en güncel ve kapsamlı ana dosyasıdır. Hem OpenCV penceresinde AR çizimi yapar hem de Open3D penceresinde 3D sahneyi gösterir.
-*   `yolov8n.pt`: YOLOv8 model dosyası.
+- **`zed11.py`**: The main script for object detection and volume calculation. It uses YOLOv8 to detect objects and the ZED depth map to estimate their 3D coordinates and bounding boxes.
+- **`yolov8n.pt`**: The pre-trained YOLOv8 Nano model used for detection.
+- **`zed2.py` - `zed9.py`**: Various iterations and experimental scripts for testing different detection and depth algorithms.
+- **`zed_mesh.obj`**: A sample 3D mesh file, possibly a result of a scanning session.
 
-## 📦 Gereksinimler
+## ✨ Features
 
-*   ZED SDK ve Python API (`pyzed`)
-*   `ultralytics` (YOLOv8 için)
-*   `opencv-python`
-*   `open3d`
-*   `numpy`
+- **Real-time Detection**: Detects common objects (bottles, cups, etc.) using YOLOv8.
+- **3D Bounding Boxes**: Draws 3D boxes around detected objects based on their spatial extent.
+- **Volume Estimation**: Calculates the volume of the detected objects in cubic units.
+- **Distance Measurement**: Displays the distance from the camera to the detected object.
 
-```bash
-pip install ultralytics opencv-python open3d numpy
-```
+## 🚀 Usage
 
-## ▶️ Kullanım
+1.  Ensure you have the required libraries installed:
+    ```bash
+    pip install ultralytics pyzed-sl opencv-python numpy
+    ```
 
-```bash
-python haritlama/zed/zed11.py
-```
+2.  Run the main detection script:
+    ```bash
+    python zed11.py
+    ```
 
-Program çalıştığında iki pencere açılacaktır:
-1.  **ZED - 2D AR Görünümü:** Kamera görüntüsü üzerinde kutular ve hacim bilgileri.
-2.  **3D Sahne Gösterimi:** Open3D ile oluşturulan nokta bulutu ve nesne kutuları.
+## 📸 Examples
+
+
+
+## ⚠️ Notes
+
+- The accuracy of volume estimation depends heavily on the quality of the depth map and the object's material (transparent or reflective surfaces may cause issues).
+- Ensure the ZED camera is calibrated correctly.

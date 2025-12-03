@@ -1,35 +1,43 @@
-# ZED Temel Modelleme ve Ölçüm Araçları
+# ZED 3D Modeling & Scanning (`haritlama/zed2`)
 
-Bu klasör, ZED kamerası için geliştirilmiş, kullanımı basit temel araçları içerir. Özellikle hızlı ölçüm almak ve ortamı taramak için tasarlanmıştır.
+This module is dedicated to 3D scanning and modeling using the ZED camera. It allows you to capture the geometry of objects and environments, saving them as 3D mesh files (e.g., `.obj`, `.ply`).
 
-## 🛠 Araçlar
+![3D Modeling Overview](../3dmodelolcum2.jpeg)
 
-### 1. Çok Fonksiyonlu Araç (`zedmodel2.py`)
-Bu script, menü tabanlı bir arayüz sunar ve iki modda çalışır:
 
-*   **Mod 1: Mesafe Ölçümü**
-    *   Ekranda tıkladığınız iki nokta arasındaki gerçek mesafeyi (cm cinsinden) ölçer.
-    *   ZED'in derinlik algısını kullanır.
-    *   `r`: Sıfırla, `m`: Menüye dön.
+## 📂 Key Files & Directories
 
-*   **Mod 2: 3D Modelleme (Spatial Mapping)**
-    *   ZED'in "Spatial Mapping" özelliğini kullanarak ortamın 3D modelini (mesh) çıkarır.
-    *   Kamerayı nesne etrafında dolaştırarak tarama yapabilirsiniz.
-    *   `k`: Taramayı bitir ve `3d_model.obj` olarak kaydet.
+- **`zedmodel.py` / `zedmodel2.py`**: Scripts for initiating the spatial mapping process and generating 3D meshes.
+- **`zedolcum.py`**: A tool for performing measurements on the live camera feed or generated models.
+- **`created_models/`**: Directory where raw generated models are saved.
+- **`final_models/`**: Directory for processed or finalized 3D models.
+- **`3d_model.obj`**: An example output of a 3D scan.
 
-## 📂 Diğer Dosyalar
-*   `zedolcum.py`: Sadece ölçüm odaklı script.
-*   `*.obj`: Oluşturulan örnek 3D modeller.
+## ✨ Features
 
-## 📦 Gereksinimler
+- **Spatial Mapping**: Uses ZED's SLAM capabilities to map the environment in real-time.
+- **Mesh Generation**: Converts the spatial map into a textured or untextured 3D mesh.
+- **Export Formats**: Supports exporting models to standard formats like OBJ and PLY.
+- **Measurement**: Tools to measure distances on the scanned objects.
 
-*   ZED SDK ve Python API (`pyzed`)
-*   `opencv-python`
-*   `numpy`
+## 🚀 Usage
 
-## ▶️ Kullanım
+To start a scanning session:
 
 ```bash
-python haritlama/zed2/zedmodel2.py
+python zedmodel2.py
 ```
-Program başladığında terminal üzerinden **1** veya **2** tuşuna basarak modu seçin.
+
+Follow the on-screen instructions (usually moving the camera around the object) to complete the scan.
+
+## 📸 Examples
+
+### Scanned Object
+![Scanned Model](path/to/scanned_model_example.png)
+*Screenshot of a 3D model viewed in a mesh viewer.*
+
+## ⚠️ Tips for Better Scans
+
+- **Lighting**: Ensure consistent and adequate lighting. Avoid direct sunlight or very dark shadows.
+- **Movement**: Move the camera slowly and steadily around the object.
+- **Texture**: Objects with rich textures scan better than plain, uniform surfaces.

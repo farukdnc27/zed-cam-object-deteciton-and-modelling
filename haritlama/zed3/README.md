@@ -1,47 +1,41 @@
-# ZED Endüstriyel Taş Analizi ve Kesim Planlaması
+# Industrial Stone Analysis & Cutting Plan (`haritlama/zed3`)
 
-Bu proje, doğal taş bloklarının (veya benzeri düzensiz nesnelerin) ZED kamera ile taranarak boyutlarının analiz edilmesi ve en verimli kesim planının oluşturulması için geliştirilmiştir.
+This advanced module is designed for a specific industrial application: analyzing natural stones (or similar irregular objects) to optimize cutting plans. It uses voxel-based analysis to determine the best way to fit standard sizes into the irregular shape of the stone.
 
-## 🚀 Özellikler
+![Stone Analysis Overview](ScreenCapture_2025-08-15-14-55-49.png)
 
-*   **Gelişmiş Voksel Analizi:** Taşın 3D modelini voksel ızgarasına (voxel grid) dönüştürür.
-*   **İç Zarf (Inner Envelope):** Taşın pürüzlü yüzeyinden içeri girerek (erosion), taşın içindeki "temiz" ve kullanılabilir hacmi hesaplar.
-*   **Paketleme Algoritması (Packing):** Belirlenen hedef boyutlardaki (örn. 30x20x10 cm) kutuların, taşın iç hacmine en verimli şekilde nasıl yerleştirileceğini hesaplar.
-*   **Kesim Planı Çıktısı:** Yerleştirilen kutuların koordinatlarını CSV formatında dışa aktarır.
-*   **Kalibrasyon:** Referans bir uzunluk kullanarak ölçüm hassasiyetini artırma imkanı.
 
-## 📂 Ana Dosya: `zedtasolcum12.py`
+## 📂 Key Files
 
-Bu dosya projenin en gelişmiş versiyonudur.
+- **`zedtasolcum12.py`**: The most advanced version of the stone measurement and analysis script. It likely includes the full pipeline from scanning to plan generation.
+- **`zedtasolcum.py` - `zedtasolcum11.py`**: Previous iterations of the algorithm.
+- **`cut_plan_*.csv`**: Output files containing the calculated cutting plans.
+- **`zed_capture_*.png`**: Snapshots taken during the analysis process.
 
-### Klavye Kısayolları (Arayüzde)
-*   **C:** Görüntüyü dondur ve analizi başlat (Capture).
-*   **R:** Analizi sıfırla, canlı moda dön (Reset).
-*   **F:** Kalibrasyon yap (iki noktaya tıkla, gerçek mesafeyi gir).
-*   **E:** Sonucu CSV olarak kaydet (Export).
-*   **B:** İç zarf (kırmızı kutu) görünümünü aç/kapat.
-*   **P:** Yerleştirilen kutuları (yeşil) aç/kapat.
-*   **M:** Taşın ham modelini (gri) aç/kapat.
-*   **Q:** Çıkış.
+## ✨ Features
 
-## ⚙️ Yapılandırma
+- **Voxelization**: Converts the 3D scan of the stone into a voxel grid for volumetric analysis.
+- **Envelope Calculation**: Determines the maximum inner rectangular volume (envelope) that fits within the irregular stone.
+- **Cutting Optimization**: Algorithms to calculate the optimal cutting plan to maximize yield and minimize waste.
+- **Reporting**: Generates CSV reports detailing the dimensions and positions of the cuts.
 
-Script içinde `StoneDimensionEstimator` sınıfı başlatılırken şu parametreler ayarlanabilir:
-*   `voxel_size_mm`: Analiz hassasiyeti (örn. 20mm).
-*   `target_dims_cm`: Kesilecek hedef parçaların boyutu.
-*   `offset_voxels_inside`: Yüzeyden kaç voksel içeri girileceği (güvenlik payı).
+## 🚀 Usage
 
-## 📦 Gereksinimler
-
-*   ZED SDK (`pyzed`)
-*   `open3d`
-*   `opencv-python`
-*   `numpy`
-*   `scipy` (Opsiyonel, daha iyi erozyon işlemi için)
-*   `trimesh` (Opsiyonel, daha hassas vokselleştirme için)
-
-## ▶️ Kullanım
+Run the main analysis script:
 
 ```bash
-python haritlama/zed3/zedtasolcum12.py
+python zedtasolcum12.py
 ```
+
+The script will process the camera input (or a loaded file), analyze the object, and output the results.
+
+## 📸 Examples
+
+### Cutting Plan Visualization
+![Cutting Plan](path/to/cutting_plan_example.png)
+*Screenshot showing the calculated cutting lines on the stone's 3D model.*
+
+## ⚠️ Requirements
+
+- This module may require higher computational resources due to voxel processing.
+- Specific calibration might be needed for accurate metric measurements.
