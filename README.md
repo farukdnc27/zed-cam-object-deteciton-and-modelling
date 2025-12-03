@@ -1,6 +1,6 @@
 # ZED & RealSense 3D Vision Projects
 
-Bu depo, **Intel RealSense** ve **Stereolabs ZED** derinlik kameraları kullanılarak geliştirilmiş çeşitli bilgisayarlı görü (computer vision), 3D modelleme ve ölçüm projelerini içerir.
+Bu repo, **Intel RealSense** ve **Stereolabs ZED** derinlik kameraları kullanılarak geliştirilmiş çeşitli bilgisayarlı görü (computer vision), 3D modelleme ve ölçüm projelerini içerir.
 
 Proje, kullanılan donanım ve amaca göre 4 ana bölüme ayrılmıştır:
 
@@ -59,17 +59,4 @@ pip install numpy opencv-python pyzed-sl ultralytics open3d
     cd zed-cam-object-deteciton-and-modelling
     ```
 
-## 📸 Usage
 
-Each subdirectory contains its own set of scripts and documentation. Please refer to the `README.md` files in `pythonzed`, `haritlama/zed`, `haritlama/zed2`, and `haritlama/zed3` for detailed instructions on running specific modules.
-
-![Usage Example](path/to/usage_example.png)
-*Place a screenshot or GIF demonstrating the application in use here.*
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-[Specify License Here]
