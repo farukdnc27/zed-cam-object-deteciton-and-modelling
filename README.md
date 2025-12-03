@@ -19,13 +19,14 @@ The fundamental goal of this project is to leverage the **ZED 2i stereo camera**
 
 ## 📂 Project Structure
 
-The project is organized into several key directories, each serving a specific purpose:
+The project is organized into several key directories, each serving a specific purpose. Click on the links below to view detailed documentation for each module:
 
-- **`pythonzed/`**: Contains core scripts for fundamental ZED camera operations such as depth sensing, point cloud generation, hand tracking, and basic measurements.
+- **[`pythonzed/`](pythonzed/README.md)**: Contains core scripts for fundamental ZED camera operations such as depth sensing, point cloud generation, hand tracking, and basic measurements.
 - **`haritlama/`**: A collection of advanced modules for mapping and specific use cases.
-    - **`zed/`**: Focuses on object detection integration (using YOLOv8) and various experimental ZED scripts.
-    - **`zed2/`**: Dedicated to 3D object scanning, modeling, and precise measurements.
-    - **`zed3/`**: A specialized module for industrial stone measurement, cutting plan generation, and detailed analysis.
+    - **[`zed/` (Object Detection)](haritlama/zed/README.md)**: Focuses on object detection integration (using YOLOv8) and various experimental ZED scripts.
+    - **[`zed2/` (3D Modeling)](haritlama/zed2/README.md)**: Dedicated to 3D object scanning, modeling, and precise measurements.
+    - **[`zed3/` (Stone Analysis)](haritlama/zed3/README.md)**: A specialized module for industrial stone measurement, cutting plan generation, and detailed analysis.
+
 
 ## ✨ Key Features
 
